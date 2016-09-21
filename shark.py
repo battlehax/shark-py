@@ -25,13 +25,16 @@ def show_usage():
 
 def do_auth():
  global tok, digest, post
- f = open(tmp, 'r')
- tok = f.readline()
- digest = f.readline()
- post = { 'token': tok, 'digest': digest }
- login = requests.post("http://"+ip+"/checkauth.cgi", json=post)
- if int(json.loads(login.text)['success']) != 1:
-  do_login()
+ try:
+   f = open(tmp, 'r')
+   tok = f.readline()
+   digest = f.readline()
+   post = { 'token': tok, 'digest': digest }
+   login = requests.post("http://"+ip+"/checkauth.cgi", json=post)
+   if int(json.loads(login.text)['success']) != 1:
+    do_login()
+ except:
+    do_login()
 
 def do_login():
  global tok, digest, post
