@@ -3,7 +3,7 @@ import sys, getopt, requests, json, re, binascii
 from hashlib import sha256
 
 password = 'openspot'
-ip = 'openspot.local'
+ip = '192.168.43.9'
 tmp = '/tmp/.shark.auth'
 
 def do_auth():
@@ -63,12 +63,21 @@ def do_recieve_sms():
  r = requests.post("http://"+ip+"/status-dmrsms.cgi", json=post)
  if int(json.loads(r.text)['rx_msg_valid']) == 1:
   print("Message recieved from: " + str(json.loads(r.text)['rx_msg_srcid']) )
+  decoded = binascii.unhexlify(json.loads(r.text)['rx_msg'])
+  '''
+  decoded = ''
   print("Encoded message: " + json.loads(r.text)['rx_msg'] )
+  for hexin in re.findall('....',json.loads(r.text)['rx_msg'] ):
+
+   decoded+=binascii.unhexlify(json.loads(r.text)['rx_msg'])
+  '''
+  print("Decoded message: " + decoded)
 
 if len(sys.argv) > 2:
  print(sys.argv[1:])
  send_dstid = str(sys.argv[1])
- send_msg = str(sys.argv[2:])
+ send_msg = ''.join(sys.argv[2:])
+ print(send_msg)
  do_send_sms()
 else:
  do_recieve_sms()
