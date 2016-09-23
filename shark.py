@@ -136,16 +136,16 @@ def set_freq( new_rx_freq, new_tx_freq = 1 ):
  dc = requests.post("http://"+ip+"/homebrewsettings.cgi", json=post)
  return( int(json.loads(dc.text)['changed']) ) 
 
-def set_mode(argv):
- if argv == "dmr":
+def set_mode( new_mode ):
+ if new_mode == "dmr":
   newmode = 2
- elif argv == "dstar":
+ elif new_mode == "dstar":
   newmode = 3
- elif argv == "c4fm":
+ elif new_mode == "c4fm":
   newmode = 4
- elif argv == "raw":
+ elif new_mode == "raw":
   newmode = 1
- elif argv == "idle":
+ elif new_mode == "idle":
   newmode = 0
  else:
   return("MODE ERROR: try one of dmr, dstar, c4fm, raw, idle")
