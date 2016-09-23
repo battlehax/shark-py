@@ -16,9 +16,9 @@ show command line arguments to change some options
 
 Here is another example:
 
-'''
+```
 #!/usr/bin/python
 import re, binascii, shark
 shark.do_checkauth()
 shark.do_send_sms( '3120022', 'hey there' )
-'''
+```
