@@ -9,19 +9,19 @@ shark.tmp = '/tmp/.shark.auth'
 
 def show_usage():
  print('''
-  usage: ./shark.py
+  usage: ./info.py
    display status
 
-  usage: ./shark.py -g <talkgroup> -m <mode> -f <frequency>
+  usage: ./info.py -g <talkgroup> -m <mode> -f <frequency>
    -m   idle/dmr/c4fm/dstar
    -g   dmr talkgroup number
    -f   frequency in MHz
   
   ex:
-   ./shark.py
-   ./shark.py -g 4639 -m c4fm
-   ./shark.py -m dmr -f 433.1
-   ./shark.py -g 0
+   ./info.py
+   ./info.py -g 4639 -m c4fm
+   ./info.py -m dmr -f 433.1
+   ./info.py -g 0
   ''')
  exit()
 
