@@ -2,6 +2,8 @@
 import json, requests
 import shark
 
+# gets info about your node reported by your brandmeister server
+
 shark.do_checkauth()
 
 server = shark.get_homebrew()['server_host']
