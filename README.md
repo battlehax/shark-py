@@ -15,6 +15,7 @@ Currently implemented:
 - shark.set_mode(new_mode) - change the modem mode
 - shark.do_recieve_sms() - if there is an unread, show sender and message as list
 - shark.do_send_sms(dstid, msg) - send sms to radio
+- shark.get_homebrew() - gets the homebrew settings as a dict
 
 There is an example script:
 

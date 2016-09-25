@@ -121,7 +121,7 @@ def get_connector():
       connector = "API ERROR: unknown connector type" 
    return(connector)
 
-def get_homebrew_server():
+def get_homebrew():
    r = requests.post("http://"+ip+"/homebrewsettings.cgi", json=post)
    return( r.json() )
 

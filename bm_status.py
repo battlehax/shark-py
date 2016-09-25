@@ -4,8 +4,8 @@ import shark
 
 shark.do_checkauth()
 
-server = shark.get_homebrew_server()['server_host']
-my_id = shark.get_homebrew_server()['repeater_id']
+server = shark.get_homebrew()['server_host']
+my_id = shark.get_homebrew()['repeater_id']
 
 print("getting status from " + server )
 
