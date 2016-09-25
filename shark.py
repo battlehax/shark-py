@@ -14,9 +14,9 @@ def do_checkauth():
       post = { 'token': tok, 'digest': digest }
       login = requests.post("http://"+ip+"/checkauth.cgi", json=post)
       if int(json.loads(login.text)['success']) != 1:
-         do_login()
+         return(do_login())
    except:
-         do_login()
+         return(do_login())
 
 def do_login():
    global tok, digest, post
@@ -26,12 +26,13 @@ def do_login():
    post = { 'token': tok, 'digest': digest }
    login = requests.post("http://"+ip+"/login.cgi", json=post)
    if int(json.loads(login.text)['success']) != 1:
-      print("AUTH ERROR: check password and ip")
+      return("AUTH ERROR: check password and ip")
       exit()
    else:
       f = open(tmp, 'w')
       f.write(tok + "\n" + digest)
       f.close
+      return([ tok, digest ])
 
 def get_freq():
    rfreq = requests.post("http://"+ip+"/modemfreq.cgi", json=post)
@@ -119,6 +120,11 @@ def get_connector():
    else:
       connector = "API ERROR: unknown connector type" 
    return(connector)
+
+def get_homebrew_server():
+   r = requests.post("http://"+ip+"/homebrewsettings.cgi", json=post)
+   return( r.json() )
+
 
 def set_talkgroup(new_group):
    post = { 'token': tok, 'digest': digest, 'new_autocon_id': new_group, 'new_c4fm_dstid': new_group, 'new_reroute_id': new_group }

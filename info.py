@@ -27,7 +27,10 @@ def show_usage():
 
 def show_info():
  print("Status: " + shark.get_status()['status'])
- print("Connector: " + shark.get_connector())
+ if shark.get_connector() == "Homebrew":
+    print("Connector: " + shark.get_connector() + " Server: " + shark.get_homebrew_server()['server_host'] )
+ else:
+   print("Connector: " + shark.get_connector())
  print("Recieve Freq: " + shark.get_freq()['rx'])
  print("Transmit Freq: " + shark.get_freq()['tx'])
  print("Mode: " + shark.get_mode()['mode'] + " (" + shark.get_mode()['submode'] +")")
