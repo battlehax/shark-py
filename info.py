@@ -35,6 +35,7 @@ def show_info():
  print("Transmit Freq: " + shark.get_freq()['tx'])
  print("Mode: " + shark.get_mode()['mode'] + " (" + shark.get_mode()['submode'] +")")
  print("Talkgroup: " + shark.get_status()['room'])
+ print("IP: " + shark.get_ip())
 
 def args(argv):
  try:

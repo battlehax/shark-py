@@ -180,3 +180,7 @@ def do_recieve_sms():
    sms_message = ''.join(json.loads(r.text)['rx_msg'].split('00')).decode('hex')
    if sms_message != '':
       return([ sms_sender, sms_message ])
+
+def get_ip():
+   r = requests.post("http://"+ip+"/ip.cgi", json=post)
+   return(r)
