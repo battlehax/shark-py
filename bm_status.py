@@ -27,6 +27,6 @@ for i in tr:
       fw = i['firmware']
       call = i['name']
 
-print(call)
-print("Room: " + room + " and " + permroom )
-print("Using: " + hw + " ver: " + fw )
+print(call + " " + hw + " ver: " + fw )
+print("Current Room: " + room )
+print("Always on: " + permroom )
