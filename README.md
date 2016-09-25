@@ -35,3 +35,5 @@ import re, binascii, shark
 shark.do_checkauth()
 shark.do_send_sms( '3120022', 'hey there' )
 ```
+
+Disclaimer: This is my first python project.
