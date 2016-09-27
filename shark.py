@@ -184,4 +184,4 @@ def do_recieve_sms():
 def get_ip():
    r = requests.post("http://"+ip+"/ip.cgi", json=post)
    shark_ip = str(json.loads(r.text)['ip'])
-   return(r)
+   return(shark_ip)
